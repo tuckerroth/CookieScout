@@ -4,12 +4,14 @@ class ProductDeliveriesControllerTest < ActionController::TestCase
   setup do
     @product = valid_product
     @product.save
-    @new_product_delivery = ProductDelivery.new({:count => 2, :product => @product})
-    @product_delivery = ProductDelivery.new({:count => 2, :product => @product})
+    @new_product_delivery = ProductDelivery.new({:count => 2, :product_id => @product.id})
+    @product_delivery = ProductDelivery.new({:count => 3})
+    @product_delivery.product = @product
     @product_delivery.save
   end
 
   test "should get index" do
+
     get :index
     assert_response :success
     assert_not_nil assigns(:product_deliveries)

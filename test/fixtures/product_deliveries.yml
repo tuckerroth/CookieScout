@@ -1,9 +1,1 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  count: 1
-  product_id: 1
-
-two:
-  count: 1
-  product_id: 1

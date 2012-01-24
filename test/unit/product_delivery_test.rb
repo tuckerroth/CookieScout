@@ -8,6 +8,7 @@ class ProductDeliveryTest < ActiveSupport::TestCase
 
   test "Is invalid without a product" do
     p_delivery = ProductDelivery.new({:product => nil, :count => 6})
+    assert !p_delivery.valid?
   end
 
   def valid_product
