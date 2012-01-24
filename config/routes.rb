@@ -1,4 +1,8 @@
 CookieScout::Application.routes.draw do
+  resources :orders
+
+  resources :product_deliveries
+
   resources :products
 
   # The priority is based upon order of creation:

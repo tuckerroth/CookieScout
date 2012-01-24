@@ -1,0 +1,25 @@
+<%= form_for(@product_delivery) do |f| %>
+  <% if @product_delivery.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product_delivery.errors.count, "error") %> prohibited this product_delivery from being saved:</h2>
+
+      <ul>
+      <% @product_delivery.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :count %><br />
+    <%= f.number_field :count %>
+  </div>
+  <div class="field">
+    <%= f.label :product_id %><br />
+    <%= collection_select(:product_delivery, :product_id, Product.all, :id, :title) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
