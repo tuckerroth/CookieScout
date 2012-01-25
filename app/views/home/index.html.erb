@@ -1,0 +1,58 @@
+
+<div id="header">
+  <h1>Cookie Tracker</h1>
+  <h2>Manage Your Cookie Sales</h2>
+</div>
+
+<div id="getting-started">
+  <h1>Getting started</h1>
+  <h2>Here&rsquo;s how to get rolling:</h2>
+
+  <ul>
+    <li>
+      <h2><a href="products" return false">Manage Products</a></h2>
+    </li>
+
+    <li>
+      <h2><a href="product_deliveries" return false">View and Edit Inventory</a></h2>
+    </li>
+
+        <table border="1">
+            <tr>
+                    <th>Product</th>
+                    <th>Inventory Count</th>
+            </tr>
+
+            <% @product_delivery_summary.each do |key, value| %>
+                <tr>
+                    <td><%= key %></td>
+                    <td><%= value %></td>
+                </tr>
+            <% end %>
+        </table>
+        <p>------------------------<br/>
+        Total Inventory: <%= @product_delivery_total %><br/><br/></p>
+
+    <li>
+      <h2><a href="orders" return false">Enter Orders</a></h2>
+    </li>
+
+        <table border="1">
+            <tr>
+                    <th>Product</th>
+                    <th>Orders Count</th>
+            </tr>
+
+            <% @order_summary.each do |key, value| %>
+                <tr>
+                    <td><%= key %></td>
+                    <td><%= value %></td>
+                </tr>
+            <% end %>
+        </table>
+        <p>------------------------<br/>
+        Total Products Ordered: <%= @order_product_total %></p>
+  </ul>
+</div>
+
+<div id="footer">&nbsp;</div>
