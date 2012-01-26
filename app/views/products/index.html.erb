@@ -1,25 +1,10 @@
 <h1>Products</h1>
 <p></p>
-<table border="1">
-  <tr>
-    <th>Title</th>
-    <th>Price</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
-<% @products.each do |product| %>
-  <tr>
-    <td><%= product.title %></td>
-    <td><%= product.price %></td>
-    <td><%= link_to 'Show', product %></td>
-    <td><%= link_to 'Edit', edit_product_path(product) %></td>
-    <td><%= link_to 'Destroy', product, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
+<%= render :partial => 'products_table' %>
 
 <br />
 
-<%= link_to 'New Product', new_product_path %>
+<div id="target"></div>
+
+<%= link_to 'New Product', new_product_path, :remote => true %>

@@ -18,6 +18,7 @@ class ProductsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @product }
+      format.js { render "show.js.erb" }
     end
   end
 
@@ -29,12 +30,17 @@ class ProductsController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @product }
+      format.js { render "new.js.erb" }
     end
   end
 
   # GET /products/1/edit
   def edit
     @product = Product.find(params[:id])
+
+    respond_to do |format|
+      format.js { render "new.js.erb" }
+    end
   end
 
   # POST /products
@@ -44,8 +50,10 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
+        @products = Product.all
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render json: @product, status: :created, location: @product }
+        format.js { render "create.js.erb" }
       else
         format.html { render action: "new" }
         format.json { render json: @product.errors, status: :unprocessable_entity }
@@ -60,8 +68,10 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.update_attributes(params[:product])
+        @products = Product.all
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
         format.json { head :no_content }
+        format.js { render "create.js.erb" }
       else
         format.html { render action: "edit" }
         format.json { render json: @product.errors, status: :unprocessable_entity }
