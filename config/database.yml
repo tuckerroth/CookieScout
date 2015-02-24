@@ -24,7 +24,12 @@ test:
   pool: 5
 
 production:
-  adapter: postgresql
-  encoding: unicode
-  database: cookiescout
+  adapter: sqlite3
   pool: 5
+  timeout: 5000
+  database: db/cookiescout.sqlite3
+  
+  #adapter: postgresql
+  #encoding: unicode
+  #database: cookiescout
+  #pool: 5
