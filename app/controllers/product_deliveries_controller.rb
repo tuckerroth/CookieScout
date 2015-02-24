@@ -24,6 +24,7 @@ class ProductDeliveriesController < ApplicationController
   # GET /product_deliveries/new
   # GET /product_deliveries/new.json
   def new
+    params.permit!
     @product_delivery = ProductDelivery.new
 
     respond_to do |format|
@@ -34,12 +35,14 @@ class ProductDeliveriesController < ApplicationController
 
   # GET /product_deliveries/1/edit
   def edit
+    params.permit!
     @product_delivery = ProductDelivery.find(params[:id])
   end
 
   # POST /product_deliveries
   # POST /product_deliveries.json
   def create
+    params.permit!
     @product_delivery = ProductDelivery.new(params[:product_delivery])
 
     respond_to do |format|
@@ -56,6 +59,7 @@ class ProductDeliveriesController < ApplicationController
   # PUT /product_deliveries/1
   # PUT /product_deliveries/1.json
   def update
+    params.permit!
     @product_delivery = ProductDelivery.find(params[:id])
 
     respond_to do |format|
@@ -72,6 +76,7 @@ class ProductDeliveriesController < ApplicationController
   # DELETE /product_deliveries/1
   # DELETE /product_deliveries/1.json
   def destroy
+    params.permit!
     @product_delivery = ProductDelivery.find(params[:id])
     @product_delivery.destroy
 

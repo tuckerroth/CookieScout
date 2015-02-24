@@ -24,6 +24,7 @@ class OrdersController < ApplicationController
   # GET /orders/new
   # GET /orders/new.json
   def new
+    params.permit!
     @order = Order.new
 
     respond_to do |format|
@@ -34,12 +35,14 @@ class OrdersController < ApplicationController
 
   # GET /orders/1/edit
   def edit
+    params.permit!
     @order = Order.find(params[:id])
   end
 
   # POST /orders
   # POST /orders.json
   def create
+    params.permit!
     @order = Order.new(params[:order])
 
     respond_to do |format|
@@ -56,6 +59,7 @@ class OrdersController < ApplicationController
   # PUT /orders/1
   # PUT /orders/1.json
   def update
+    params.permit!
     @order = Order.find(params[:id])
 
     respond_to do |format|
@@ -72,6 +76,7 @@ class OrdersController < ApplicationController
   # DELETE /orders/1
   # DELETE /orders/1.json
   def destroy
+    params.permit!
     @order = Order.find(params[:id])
     @order.destroy
 

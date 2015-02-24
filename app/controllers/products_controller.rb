@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
+    params.permit!
     @products = Product.all
 
     respond_to do |format|
@@ -13,6 +14,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+    params.permit!
     @product = Product.find(params[:id])
 
     respond_to do |format|
@@ -25,6 +27,7 @@ class ProductsController < ApplicationController
   # GET /products/new
   # GET /products/new.json
   def new
+    params.permit!
     @product = Product.new
 
     respond_to do |format|
@@ -46,6 +49,7 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
+    params.permit!
     @product = Product.new(params[:product])
 
     respond_to do |format|
@@ -64,6 +68,7 @@ class ProductsController < ApplicationController
   # PUT /products/1
   # PUT /products/1.json
   def update
+    params.permit!
     @product = Product.find(params[:id])
 
     respond_to do |format|
